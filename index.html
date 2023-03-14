@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="header">Список дел</div>
+        <div class="card_container">
+            <ul id="taskList">
+                
+            </ul>
+        </div>
+        <div class="btn" >
+            <img id="open_popup" src="./img/edit.png" alt="edit image">
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup_container">
+            <div class="popup_body" id="popup_body">
+            <p>Добавить задачу</p>
+            <form id="form" action="#">
+                <input  id="input" type="text" placeholder="Что ты хочешь сделать?" autofocus autocomplete="off" required >
+                <button id="addValue" type="submit" >Добавить</button>
+            </form>
+            <div class="popup_close" id="popup_close">&#10006</div>
+        </div>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
