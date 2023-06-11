@@ -12,7 +12,7 @@ const assetUrls = [
     '/img/todo24.png',
     '/img/todo64.png',
     '/img/todo128.png',
-    
+    '/img/t256.png',
     '/img/todo512.png',
 ]
 
