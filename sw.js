@@ -16,27 +16,36 @@ const assetUrls = [
     '/img/todo512.png',
 ]
 
-self.addEventListener('install', async event => {
-   const cache = await caches.open(staticCasheName)
-   await cache.addAll(assetUrls)
-            
-})
+self.addEventListener('install', event => {
+  event.waitUntil(cacheAssets());
+});
 
-
-self.addEventListener('activate', async event => {
-    const cacheNames = await caches.keys();
-    await Promise.all(cacheNames
-        .filter(name => name !== staticCasheName)
-        .map(name => caches.delete(name))
-    )
-})
+self.addEventListener('activate', event => {
+  event.waitUntil(cleanupCache());
+});
 
 self.addEventListener('fetch', event => {
-    
-    event.respondWith(cacheFirst(event.request))
-})
+  event.respondWith(fetchFromCache(event.request));
+});
 
-async function cacheFirst(request) {
-    const cached = await caches.match(request)
-    return cached ?? await fetch(request)
+async function cacheAssets() {
+  const cache = await caches.open(staticCacheName);
+  await cache.addAll(assetUrls);
+}
+
+async function cleanupCache() {
+  const cacheNames = await caches.keys();
+  await Promise.all(
+    cacheNames
+      .filter(name => name !== staticCacheName)
+      .map(name => caches.delete(name))
+  );
+}
+
+async function fetchFromCache(request) {
+  const cachedResponse = await caches.match(request);
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+  return fetch(request);
 }
