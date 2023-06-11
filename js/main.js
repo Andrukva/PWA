@@ -6,16 +6,16 @@ const valueInput = document.getElementById("input");
 const tasksList = document.querySelector("#taskList");
 const emptyList = document.querySelector("#emptyList");
 
-window.addEventListener("load", async() => {
-  if('serviceWorker' in navigator) {
+window.addEventListener("load", async () => {
+  if ('serviceWorker' in navigator) {
     try {
-      await navigator.serviceWorker.register('sw.js');
-      console.log('[ServiceWorker] Registered');
+      const registration = await navigator.serviceWorker.register('sw.js');
+      console.log('[ServiceWorker] Registered', registration);
     } catch (error) {
       console.log('[ServiceWorker] Error', error);
     }
   }
-})
+});
 
 let tasks = [];
 
