@@ -22,11 +22,7 @@
         "sizes": "128x128",
         "type": "image/png"
       },
-      {
-        "src": "/img/t256.png",
-        "sizes": "256x256",
-        "type": "image/png"
-      },
+      
       {
         "src": "/img/todo512.png",
         "sizes": "512x512",
