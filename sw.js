@@ -9,11 +9,11 @@ const assetUrls = [
   '/img/empty-folder32.png',
   '/img/empty-folder64.png',
   '/img/fact_check.png',
-  '/img/todo24.png',
-  '/img/todo64.png',
-  '/img/todo128.png',
-  '/img/todo256.png',
-  '/img/todo512.png',
+  './img/todo24.png',
+  './img/todo64.png',
+  './img/todo128.png',
+  './img/todo256.png',
+  './img/todo512.png',
 ];
 
 self.addEventListener('install', event => {
