@@ -106,7 +106,7 @@ function checkEmptyList() {
     const emptyListHTML = `
             <li id="emptyList">
               <img src="./img/empty-folder64.png" alt="">
-              <div class="emty-list_title">Сисок дел пуст</div>
+              <div class="emty-list_title">Список дел пуст</div>
             </li>`;
 
     tasksList.insertAdjacentHTML("afterbegin", emptyListHTML);
